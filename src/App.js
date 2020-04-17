@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
-//import inventory from './inventory'
-
-import PLANTS from './inventory'
+import { Route } from 'react-router-dom';
+//import inventory from './inventory';
+import PLANTS from './inventory';
 
 class App extends Component {
   constructor(props) {
@@ -19,6 +18,9 @@ class App extends Component {
   }
 
   render() {
+    const contextValue = {
+
+    }
     return (
       <main className='App'>
         {console.log('App component rendered successfully!')/* content goes here */}
