@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 //import inventory from './inventory';
 import PLANTS from './inventory';
+import Landing from './composition/Landing';
 
 class App extends Component {
   constructor(props) {
@@ -23,9 +24,13 @@ class App extends Component {
     }
     return (
       <main className='App'>
-        {console.log('App component rendered successfully!')/* content goes here */}
-        {/*console.log(inventory)*/}
-        Plant Parenthood :)
+        <div className='content'>
+          <Route 
+            exact
+            path='/'
+            component={Landing}
+          />
+        </div>
       </main>
     );
   }
