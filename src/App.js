@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-//import inventory from './inventory';
 import PLANTS from './inventory';
-import Landing from './composition/Landing';
+import Landing from './composition/Landing/Landing.js';
+import Home from './composition/Home/Home.js'
+import Favorites from './composition/Favorites/Favorites.js'
+import AllPlants from './composition/AllPlants/AllPlants.js';
+import AddNewPlant from './composition/AddNewPlant/AppNewPlant.js';
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +32,26 @@ class App extends Component {
             exact
             path='/'
             component={Landing}
+          />
+          <Route 
+            exact
+            path='/Home'
+            component={Home}
+          />
+          <Route 
+            exact
+            path='/Favorites'
+            component={Favorites}
+          />
+          <Route 
+            exact
+            path='/AllPlants'
+            component={AllPlants}
+          />
+          <Route 
+            exact
+            path='/AddNewPlant'
+            component={AddNewPlant}
           />
         </div>
       </main>
