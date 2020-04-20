@@ -6,6 +6,9 @@ import Home from './composition/Home/Home.js'
 import Favorites from './composition/Favorites/Favorites.js'
 import AllPlants from './composition/AllPlants/AllPlants.js';
 import AddNewPlant from './composition/AddNewPlant/AppNewPlant.js';
+import Nav from './composition/Nav/Nav.js';
+import './composition/Nav/Nav.css'
+import './App.css'
 
 class App extends Component {
   constructor(props) {
@@ -27,7 +30,12 @@ class App extends Component {
     }
     return (
       <main className='App'>
+        <header>
+          <img src="https://netrinoimages.s3.eu-west-2.amazonaws.com/2016/07/07/416778/123869/alocasia_montana_large_exotic_tropical_plant_3d_model_c4d_max_obj_fbx_ma_lwo_3ds_3dm_stl_1487210_o.jpg" alt="cool plants" height="350" width="484"/>
+        </header>
         <div className='content'>
+          <h2>Plant Parenthood</h2>
+          <Nav />
           <Route 
             exact
             path='/'

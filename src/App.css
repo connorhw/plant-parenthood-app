@@ -1,0 +1,16 @@
+header {
+    height: 150px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+    display: block;
+    background-color: blanchedalmond;
+    margin-top: 145px;
+    margin-left: 5px;
+}

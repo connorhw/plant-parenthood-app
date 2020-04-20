@@ -1,4 +1,5 @@
 import React from 'react'
+import './AllPlants.css'
 
 function AllPlants() {
     return (

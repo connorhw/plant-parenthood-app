@@ -1,4 +1,5 @@
 import React from 'react'
+import './AddNewPlant.css'
 
 function AddNewPlant() {
     return (
