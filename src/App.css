@@ -10,7 +10,9 @@ img {
 
 h2 {
     display: block;
-    background-color: blanchedalmond;
+    color: white;
     margin-top: 145px;
     margin-left: 5px;
+    width: 180px;
+    border: 5px solid white;
 }

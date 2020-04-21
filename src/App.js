@@ -9,6 +9,8 @@ import AddNewPlant from './composition/AddNewPlant/AppNewPlant.js';
 import Nav from './composition/Nav/Nav.js';
 import './composition/Nav/Nav.css'
 import './App.css'
+import SignIn from './composition/SignIn/SignIn';
+import SignUp from './composition/SignUp/SignUp';
 
 class App extends Component {
   constructor(props) {
@@ -60,6 +62,16 @@ class App extends Component {
             exact
             path='/AddNewPlant'
             component={AddNewPlant}
+          />
+          <Route
+            exact
+            path='/SignIn'
+            component={SignIn}
+          />
+          <Route
+            exact
+            path='/SignUp'
+            component={SignUp}
           />
         </div>
       </main>

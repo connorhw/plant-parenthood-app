@@ -1,9 +1,9 @@
-div.home {
-    display: block;
+form.sign-in-form {
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
+    height: 300px;
     width: 300px;
-    border: 1px solid black;
-
+    text-align: center;
 }
+

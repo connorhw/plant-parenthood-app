@@ -4,6 +4,22 @@ div.landing {
     margin-left: auto;
     margin-right: auto;
     width: 300px;
-    border: 1px solid black;
+    height: 300px;
+    text-align: center;
 
 }
+
+a.form-link{
+    display: block;
+    margin-top: 10px;
+    height: 40px;
+    width: 90px;
+    margin-bottom: 50px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: wheat;
+    text-decoration: none;
+}
+
+
