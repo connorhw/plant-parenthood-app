@@ -13,7 +13,7 @@ function AddNewPlant() {
             <label htmlFor='repot'>When to repot: </label>
             <input id='repot' name='repot' type='text'/><br />
             <label htmlFor='fert'>Type of fertilizer: </label>
-            <input id='fert' name='fert' type='text'></input><br /><br />
+            <input id='fert' name='fert' type='text' /><br /><br />
 
             <label htmlFor='maintain'>Maintenance Level: </label>
             <select id='maintain' required>

@@ -5,5 +5,19 @@ div.home {
     margin-right: auto;
     width: 300px;
     border: 1px solid black;
+    height: 700px;
+    text-align: center;
 
+}
+
+section.random {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    height: 450px;
+
+}
+
+img {
+    margin: 10px;
 }

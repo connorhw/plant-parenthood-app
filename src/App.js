@@ -24,7 +24,7 @@ class App extends Component {
   componentDidMount() {
     //replace whatever is in here with the future fetch.
     const allPlants = PLANTS;
-    //console.log(allPlants);
+    console.log(allPlants);
 
    // allPlants.map(plant => {
 

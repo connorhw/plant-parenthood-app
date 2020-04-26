@@ -3,4 +3,22 @@ form.add-plant-form {
     margin-top: 50px;
     margin-left: 10px;
     height: 500px;
+    height: 700px;
+}
+
+input {
+    border-color: burlywood;
+    margin-bottom: 5px;
+}
+
+textarea {
+    border-color: burlywood;
+}
+
+select {
+    border-color: burlywood;
+}
+
+button {
+    border-color: burlywood;
 }

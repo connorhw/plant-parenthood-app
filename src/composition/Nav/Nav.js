@@ -1,10 +1,10 @@
 import React from 'react'
-import {Link, BrowserRouter} from 'react-router-dom'
+import {Link /*, BrowserRouter*/} from 'react-router-dom'
 
 export default class Nav extends React.Component {
     render() {
         return (
-            <BrowserRouter>
+            //<BrowserRouter>
                 <div className='nav-bar'>
                     <Link to={'/'}>
                         Landing
@@ -22,7 +22,7 @@ export default class Nav extends React.Component {
                         New Plant
                     </Link>
                 </div>
-            </BrowserRouter>
+            //</BrowserRouter>
         )
     }
 }

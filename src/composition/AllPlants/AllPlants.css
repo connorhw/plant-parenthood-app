@@ -4,6 +4,12 @@ div.all-plants {
     margin-left: auto;
     margin-right: auto;
     width: 300px;
-    border: 1px solid black;
+   
+
+}
+
+h2.all-header {
+    margin-top: 20px;
+    color: black;
 
 }
