@@ -8,7 +8,8 @@ export default {
         "fertilizer": "very very special type of ferilizer, test, test, test",
         "repot": "every 6 months",
         "maintenance_level": "low",
-        "fun_fact": "came from blah blah blah"
+        "fun_fact": "came from blah blah blah",
+        "fav": false
         }
     ],
 
@@ -21,7 +22,9 @@ export default {
             "fertilizer": "very very special type of ferilizer, test2, test2, test2",
             "repot": "every 1 months",
             "maintenance_level": "high",
-            "fun_fact": "came from bleh bleh bleh"
+            "fun_fact": "came from bleh bleh bleh",
+            "fav": false
+
         }
     ],
     
@@ -34,7 +37,9 @@ export default {
             "fertilizer": "very very special type of ferilizer, test3, test3, test3",
             "repot": "every 8 months",
             "maintenance_level": "very low",
-            "fun_fact": "came from bloh bloh bloh"
+            "fun_fact": "came from bloh bloh bloh",
+            "fav": true
+
         }
     ]
 
