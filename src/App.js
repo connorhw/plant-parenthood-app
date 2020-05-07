@@ -12,6 +12,7 @@ import './App.css'
 import SignIn from './composition/SignIn/SignIn';
 import SignUp from './composition/SignUp/SignUp';
 import { BrowserRouter } from 'react-router-dom';
+import PlantPage from './composition/PlantPage/PlantPage';
 
 class App extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class App extends Component {
   componentDidMount() {
     //replace whatever is in here with the future fetch.
     const allPlants = PLANTS;
-    console.log(allPlants);
+    //console.log(allPlants);
 
    // allPlants.map(plant => {
 
@@ -96,6 +97,11 @@ class App extends Component {
             exact
             path='/SignUp'
             component={SignUp}
+          />
+          <Route 
+            exact
+            path='/PlantPage'
+            component={PlantPage}
           />
         </div>
       </main>

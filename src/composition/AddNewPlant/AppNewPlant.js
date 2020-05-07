@@ -4,6 +4,7 @@ import './AddNewPlant.css'
 function AddNewPlant() {
     return (
         <form className='add-plant-form'>
+            <h3>New Plant Form</h3>
             <label htmlFor='plant-name'>Plant Name: </label>
             <input id='plant-name' name='plant-name' type='text' required /><br /><br />
             <label htmlFor='week-water'>Water per week: </label>

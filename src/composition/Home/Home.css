@@ -4,7 +4,6 @@ div.home {
     margin-left: auto;
     margin-right: auto;
     width: 300px;
-    border: 1px solid black;
     height: 700px;
     text-align: center;
 
@@ -20,4 +19,14 @@ section.random {
 
 img {
     margin: 10px;
+}
+
+h3.home {
+    display: flex;
+    margin-top: 10px;
+    color: black;
+}
+
+button.search {
+    margin-left: 2px;
 }
