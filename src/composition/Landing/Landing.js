@@ -1,15 +1,16 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import './Landing.css'
+//import SignIn from '../SignIn/SignIn'
 
 function Landing() {
     return (
       
             <div className='landing'>
                 <label>Have an account?</label>
-                <Link to={'/SignIn'} className='form-link'>Sign In</Link>
+                <Link to={`/SignIn`} className='form-link'>Sign In</Link>
                 <label>Want an account?</label>
-                <Link to={'/'} className='form-link'>Sign Up</Link>
+                <Link to={`/SignUp`} className='form-link'>Sign Up</Link>
             </div>
         
     )
