@@ -8,7 +8,7 @@ function AllPlants() {
         
             <div className='all-plants'>
             <h3 className='all-header'>All the plants we've seen so far: </h3>
-            <Link to={`/PlantPage`} className='plant-page-link'>Plant0_name</Link>
+            <Link to={`/PlantPage`}>Plant0_name</Link>
                 {   
                     Object.keys(store).map((plant, index) => {
                         return (

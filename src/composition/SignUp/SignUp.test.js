@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 test('renders SignUp component successfully', () => {
   render(
   <BrowserRouter>
-    <SignUp />
+    <SignUp/>
   </BrowserRouter>
   );
 });

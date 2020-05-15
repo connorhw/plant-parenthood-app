@@ -7,7 +7,7 @@ function Favorites() {
     return (
         <div className='favorites'>
             <h3 className='fav-header'>All of your favorites: </h3>
-            <Link to={`/PlantPage`} className='plant-page-link'>Plant0_name</Link>
+            <Link to={`/PlantPage`}>Plant0_name</Link>
             {   
                 Object.keys(store).map((plant, index) => {
                     return (
