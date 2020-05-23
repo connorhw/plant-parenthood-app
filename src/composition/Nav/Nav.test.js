@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 test('renders Nav component successfully', () => {
   render(
     <BrowserRouter>
-        <Nav />
+        <Nav/>
     </BrowserRouter>
   );
 });

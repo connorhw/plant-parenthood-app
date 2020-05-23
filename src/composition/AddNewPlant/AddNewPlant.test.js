@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 test('renders AddNewPlant component successfully', () => {
   render(
       <BrowserRouter>
-        <AddNewPlant />
+        <AddNewPlant/>
       </BrowserRouter>
     );
 });

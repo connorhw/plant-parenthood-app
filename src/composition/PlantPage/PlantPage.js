@@ -17,7 +17,7 @@ function PlantPage() {
                 <div className='water-day'>Water per day: N/A</div><br />
                 <div className='water-week'>Water per week: 3</div><br />
                 <div className='env'>Environment: Indoors, 60 to 80 degress, moderate sunlight</div><br />
-                <div className='fert'>Fertilizer: Phosphorus</div><br />
+                <div className='soil-fert'>Soil or Fertilizer: Phosphorus Fertilizer</div><br />
                 <div className='repot'>Repot: Every 3 months</div><br />
                 <div className='level'>Maintenance Level: Medium</div><br />
                 <div className='fun'>Fun Fact: My first plant</div><br />
@@ -26,7 +26,6 @@ function PlantPage() {
                 <button>Edit</button>
                 <button>Delete</button>
             </section>
-
         </div>
     )
 }

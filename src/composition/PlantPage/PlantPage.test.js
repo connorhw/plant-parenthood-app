@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 test('renders PlantPage component successfully', () => {
   render(
     <BrowserRouter>
-        <PlantPage/>
+        <PlantPage />
     </BrowserRouter>
   );
 });

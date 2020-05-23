@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 test('renders Favorites component successfully', () => {
   render(
     <BrowserRouter>
-        <Favorites />
+        <Favorites/>
     </BrowserRouter>
   );
 });
