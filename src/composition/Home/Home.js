@@ -1,8 +1,19 @@
 import React from 'react'
 import './Home.css'
 import { Link } from 'react-router-dom'
+import inventory from '../../inventory'
 
 function Home() {
+
+    let plantKeys = Object.keys(inventory)
+
+    let randomIndex = Math.floor(Math.random() * plantKeys.length)
+    let randomPlant = inventory[plantKeys[randomIndex]]
+
+    console.log(inventory);
+    console.log(randomPlant);
+
+
     return (
         <div className='home'>
             <h3 className='home'>Home</h3>

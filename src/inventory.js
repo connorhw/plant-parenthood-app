@@ -1,6 +1,7 @@
 export default {
     "plant1": [
         {
+        "plant_id": 1,
         "plant_name": "plant1_name",
         "water_per_day": 0,
         "water_per_week": 2,
@@ -15,6 +16,7 @@ export default {
 
     "plant2": [
         {
+            "plant_id": 2,
             "plant_name": "plant2_name",
             "water_per_day": 1,
             "water_per_week": 7,
@@ -30,6 +32,7 @@ export default {
     
     "plant3": [
         {
+            "plant_id": 3,
             "plant_name": "plant3_name",
             "water_per_day": 0,
             "water_per_week": 1,
@@ -45,6 +48,7 @@ export default {
 
     "plant4": [
         {
+            "plant_id": 4,
         "plant_name": "plant4_name",
         "water_per_day": 0,
         "water_per_week": 2,
@@ -59,6 +63,7 @@ export default {
 
     "plant5": [
         {
+            "plant_id": 5,
             "plant_name": "plant5_name",
             "water_per_day": 1,
             "water_per_week": 7,
@@ -74,6 +79,7 @@ export default {
     
     "plant6": [
         {
+            "plant_id": 6,
             "plant_name": "plant6_name",
             "water_per_day": 0,
             "water_per_week": 1,
@@ -89,6 +95,7 @@ export default {
 
     "plant7": [
         {
+        "plant_id": 7,
         "plant_name": "plant7_name",
         "water_per_day": 0,
         "water_per_week": 2,
@@ -103,6 +110,7 @@ export default {
 
     "plant8": [
         {
+            "plant_id": 8,
             "plant_name": "plant8_name",
             "water_per_day": 1,
             "water_per_week": 7,
@@ -118,6 +126,7 @@ export default {
     
     "plant9": [
         {
+            "plant_id": 9,
             "plant_name": "plant9_name",
             "water_per_day": 0,
             "water_per_week": 1,

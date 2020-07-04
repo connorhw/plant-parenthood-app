@@ -13,6 +13,7 @@ import SignIn from './composition/SignIn/SignIn';
 import SignUp from './composition/SignUp/SignUp';
 import { BrowserRouter } from 'react-router-dom';
 import PlantPage from './composition/PlantPage/PlantPage';
+import NewPlantPage from './composition/NewPlantPage/NewPlantPage';
 
 class App extends Component {
   constructor(props) {
@@ -100,9 +101,10 @@ class App extends Component {
           />
           <Route 
             exact
-            path='/PlantPage'
-            component={PlantPage}
+            path='/PlantPage/:id'
+            component={NewPlantPage}
           />
+
         </div>
       </main>
       </BrowserRouter>
