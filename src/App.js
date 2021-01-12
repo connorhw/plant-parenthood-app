@@ -14,12 +14,13 @@ import SignUp from './composition/SignUp/SignUp';
 import { BrowserRouter } from 'react-router-dom';
 import PlantPage from './composition/PlantPage/PlantPage';
 import NewPlantPage from './composition/NewPlantPage/NewPlantPage';
+import PlantContext from './PlantContext/PlantContext'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      plants:[]
+      plants: PLANTS
     }
   }
 
@@ -53,9 +54,10 @@ class App extends Component {
 
   render() {
     const contextValue = {
-
+      plants: this.state.plants
     }
     return (
+      <PlantContext.Provider value={contextValue}>
       <BrowserRouter>
       <main className='App'>
         <header>
@@ -89,6 +91,7 @@ class App extends Component {
             path='/AddNewPlant'
             component={AddNewPlant}
           />
+          
           <Route
             exact
             path='/SignIn'
@@ -99,6 +102,7 @@ class App extends Component {
             path='/SignUp'
             component={SignUp}
           />
+
           <Route 
             exact
             path='/PlantPage/:id'
@@ -108,6 +112,7 @@ class App extends Component {
         </div>
       </main>
       </BrowserRouter>
+      </PlantContext.Provider>
     );
   }
 }
