@@ -18,10 +18,16 @@ function AddNewPlant() {
 
             <label htmlFor='maintain'>Maintenance Level: </label>
             <select id='maintain' required>
-                <option value=''></option>
+                <option value=''>select</option>
                 <option value='low'>Low</option>
                 <option value='medium'>Medium</option>
                 <option value='high'>High</option>
+            </select><br /><br />
+            <labe>Add to Favorites? </labe>
+            <select id='fav' required>
+                <option value=''>select</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
             </select><br /><br />
 
             <label htmlFor='env'>Recommended environment: </label><br />

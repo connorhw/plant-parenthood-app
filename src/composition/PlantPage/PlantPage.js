@@ -1,14 +1,62 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './PlantPage.css';
+import PlantContext from '../../PlantContext'
 
+class PlantPage extends Component {
+    static contextType = PlantContext
+    /*
+    deletePlant = (plantId) => {
+        const allPlantsUrl = `http://localhost:8000/api/plants/${plantId}`
+        fetch(allPlantsUrl, {
+            method: 'DELETE',
+        })
+        .then(() => {
+            this.props.history.push('/')
+            this.context.deletePlantRequest(plantId)
+        })
+    }
+    */
+    
+    render() {
+        //console.log(this.context)
+        //console.log(this.props)
+        const selected = this.context.plants.find(plant => {
+             return (this.props.match.params.plantId == plant.id)
+        })
+        return (
+            <div>
+                {console.log(selected)}
+                <section className='plant-page-info'>
+                    <h2 className='plant-name'>{selected.plant_name}</h2>
+                    <div>Maintenance Level: {selected.maint_level}</div><br />
+                    <div>Recommended Environment: {selected.rec_env}</div>
+                    <div>Fertilizer/Soil: {selected.fert_type}</div>
+                    <div>Repot every: {selected.when_repot}</div><br />
+                    <div>Water per day: {selected.water_day}</div>
+                    <div>Water per week: {selected.water_week}</div><br />
+                    <div>Fun Fact: {selected.fun_fact}</div>
+
+
+                </section>
+            </div>
+        );
+    }
+}
+
+export default PlantPage;
+
+PlantPage.defaultProps = {
+    plant: {
+        content: '',
+    }
+}
+
+/*
 function PlantPage() {
     return (
         <div className='plant-page'>
             <h3>Selected Plant Page (test)</h3>
             <h2 className='name'>Green Stoebe</h2>
-            <section className='picture'>
-                <img src="https://cdn.shopify.com/s/files/1/1334/4597/products/STB112-Green-Preserved-Stoebe_ea3ef1bc-2247-435c-a542-78a3653e466f_x1200.progressive.jpg?v=1568844880" alt="plant that was selected" height="300" width="300"/>
-            </section>
             <section>
                 <button>Add to favorites</button>
             </section>
@@ -31,4 +79,5 @@ function PlantPage() {
 }
 
 export default PlantPage;
+*/
 

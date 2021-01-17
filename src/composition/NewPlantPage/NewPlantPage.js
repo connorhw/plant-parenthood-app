@@ -5,7 +5,7 @@ import store from '../../inventory'
 
 function NewPlantPage(props) {
     let myPlant = Object.keys(store).find((plant, index) => {
-        return store[plant][0].plant_id == props.match.params.id  
+        return store[plant][0].plant_id === props.match.params.id  
     })
     console.log(myPlant);
     return (
