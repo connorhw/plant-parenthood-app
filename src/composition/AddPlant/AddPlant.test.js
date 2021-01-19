@@ -1,12 +1,12 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import AddNewPlant from './AppNewPlant';
+import AddPlant from './AddPlant';
 import { BrowserRouter } from 'react-router-dom';
 
-test('renders AddNewPlant component successfully', () => {
+test('renders AddPlant component successfully', () => {
   render(
       <BrowserRouter>
-        <AddNewPlant/>
+        <AddPlant/>
       </BrowserRouter>
     );
 });

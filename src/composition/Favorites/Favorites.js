@@ -1,24 +1,34 @@
 import React from 'react'
 import './Favorites.css'
-import store from '../../inventory'
-import { Link } from 'react-router-dom'
+//import store from '../../inventory'
+//import { Link } from 'react-router-dom'
+import { Component } from 'react'
+import PlantContext from '../../PlantContext'
+import Plant from '../Plant/Plant'
 
-function Favorites() {
-    return (
-        <div className='favorites'>
-            <h3 className='fav-header'>All of your favorites: </h3>
-            <Link to={`/PlantPage/0`}>Plant0_name</Link>
-            {   
-                Object.keys(store).map((plant, index) => {
-                    return (
-                        <Link to={`/PlantPage/${store[plant][0].plant_id}`}>
-                            <p key={index}>{store[plant][0].plant_name}</p>
-                        </Link>
-                    )
-                })
-            }
-        </div>
-    )
+class Favorites extends Component {
+    static contextType = PlantContext;
+    render() {
+        console.log(this.props)
+        const filteredPlants = this.context.plants.filter((plant) => {
+            return (this.props.match.isExact === plant.fav)
+        })
+        return (
+            <section>
+                <h3>Your favorites: </h3>
+                <ul>
+                    {console.log(filteredPlants)}
+                    {filteredPlants.map( plant => 
+                    <li key={plant.id}>
+                        <Plant
+                        id={plant.id}
+                        name={plant.plant_name}
+                        />
+                    </li>
+                    )}
+                </ul>
+            </section>
+        );
+    }
 }
-
 export default Favorites;

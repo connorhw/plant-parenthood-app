@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './PlantPage.css';
 import PlantContext from '../../PlantContext'
+import { Link } from 'react-router-dom';
 
 class PlantPage extends Component {
     static contextType = PlantContext
-    /*
+    
     deletePlant = (plantId) => {
         const allPlantsUrl = `http://localhost:8000/api/plants/${plantId}`
         fetch(allPlantsUrl, {
@@ -12,11 +13,25 @@ class PlantPage extends Component {
         })
         .then(() => {
             this.props.history.push('/')
+            //console.log(this.context)
             this.context.deletePlantRequest(plantId)
         })
     }
-    */
     
+    
+
+    editPlant = (plantId) => {
+        const allPlantsUrl = `http://localhost:8000/api/plants/${plantId}`
+        fetch(allPlantsUrl, {
+            method: 'PATCH',
+        })
+        .then(() => {
+            this.props.history.push('/EditPlant')
+            this.context.editPlantRequest(plantId)
+        })
+    }
+    
+
     render() {
         //console.log(this.context)
         //console.log(this.props)
@@ -26,6 +41,7 @@ class PlantPage extends Component {
         return (
             <div>
                 {console.log(selected)}
+                <Link to={`/edit/${this.props.match.params.plantId}`}>edit plant</Link>
                 <section className='plant-page-info'>
                     <h2 className='plant-name'>{selected.plant_name}</h2>
                     <div>Maintenance Level: {selected.maint_level}</div><br />
@@ -35,9 +51,8 @@ class PlantPage extends Component {
                     <div>Water per day: {selected.water_day}</div>
                     <div>Water per week: {selected.water_week}</div><br />
                     <div>Fun Fact: {selected.fun_fact}</div>
-
-
                 </section>
+                <button onClick={() => this.deletePlant(selected.id)}>delete</button>
             </div>
         );
     }

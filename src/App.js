@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-//import PLANTS from './inventory';
-//import Landing from './composition/Landing/Landing.js';
 import Home from './composition/Home/Home.js'
 import Favorites from './composition/Favorites/Favorites.js'
 import AllPlants from './composition/AllPlants/AllPlants.js';
-import AddNewPlant from './composition/AddNewPlant/AddNewPlant.js';
+import AddPlant from './composition/AddPlant/AddPlant'
 import Nav from './composition/Nav/Nav.js';
 import './composition/Nav/Nav.css'
 import './App.css'
-//import SignIn from './composition/SignIn/SignIn';
-//import SignUp from './composition/SignUp/SignUp';
 import { BrowserRouter } from 'react-router-dom';
 import PlantPage from './composition/PlantPage/PlantPage.js';
-//import NewPlantPage from './composition/NewPlantPage/NewPlantPage';
 import PlantContext from './PlantContext'
+import EditPlant from '../src/composition/EditPlant/EditPlant.js'
 
 class App extends Component {
   constructor(props) {
@@ -45,21 +41,43 @@ class App extends Component {
         })
       })
   }
-/*
-  deletePlant = plantId => {
-    const newPlants = this.state.plants.filter(p => 
+  
+  deletePlantRequest = (plantId) => {
+    const newPlants = this.state.plants.filter(p =>
       p.id !== plantId
     )
     this.setState({
       plants: newPlants
     })
   }
-*/
+
+  editPlantRequest = (updatedPlant) => {
+    const newPlants = this.state.plants.map(pla =>
+      (pla.id === updatedPlant.id)
+        ?updatedPlant
+        :pla
+      )
+      this.setState({
+        plants: newPlants
+      })
+  }
+
+  
+  addPlantRequest = (plantName) => {
+    this.setState({
+      plants: [...this.state.plants, plantName]
+    })
+  }
+
+  //addPlantRequest = (pla)
+
   render() {
     const contextValue = {
       plants: this.state.plants,
       favorites: this.state.favorites,
-      //deletePlantRequest: this.deletePlant,
+      addPlantRequest: this.state.addPlantRequest,
+      deletePlantRequest: this.deletePlantRequest,
+      editPlantRequest: this.editPlantRequest,
     }
     return (
       <PlantContext.Provider value={contextValue}>
@@ -96,12 +114,17 @@ class App extends Component {
             path='/plants/:plantId'
             component={PlantPage}
           />
-          {/*<Route
-            exact
-            path='/SignIn'
-            component={SignIn}
+          <Route
+            path='/AddPlant'
+            render={() => {
+              return <AddPlant plants={this.state.plants} handleAdd={this.addPlantRequest}/>
+            }}
           />
           <Route
+            path='/edit/:plantId'
+            component={EditPlant}
+          />
+          {/*<Route
             exact
             path='/SignUp'
             component={SignUp}

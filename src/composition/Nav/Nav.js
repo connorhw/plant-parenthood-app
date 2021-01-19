@@ -18,7 +18,7 @@ export default class Nav extends React.Component {
                     <Link to={`/plants`}>
                         All
                     </Link>
-                    <Link to={`/AddNewPlant`}>
+                    <Link to={`/AddPlant`}>
                         New Plant
                     </Link>
                 </nav>
