@@ -27,6 +27,9 @@ h2.plant-name {
 }
 
 div.content {
-    border: solid 1px black;
-    height: 800px;
+    /*border: solid 1px black;*/
+    height: 1000px;
+}
+a {
+    display: inline-block;
 }

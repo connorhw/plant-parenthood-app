@@ -9,7 +9,6 @@ import Plant from '../Plant/Plant'
 class Favorites extends Component {
     static contextType = PlantContext;
     render() {
-        console.log(this.props)
         const filteredPlants = this.context.plants.filter((plant) => {
             return (this.props.match.isExact === plant.fav)
         })
@@ -17,7 +16,6 @@ class Favorites extends Component {
             <section>
                 <h3>Your favorites: </h3>
                 <ul>
-                    {console.log(filteredPlants)}
                     {filteredPlants.map( plant => 
                     <li key={plant.id}>
                         <Plant

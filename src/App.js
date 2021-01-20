@@ -32,7 +32,6 @@ class App extends Component {
           throw new Error(response.status)
         }
         const res = response.json()
-        console.log(res)
         return res;
       })
       .then(res => {
@@ -89,11 +88,6 @@ class App extends Component {
         <div className='content'>
           <h2 className='home-title'>Plant Parenthood</h2>
           <Nav plants={this.state.plants}/>
-          {/*<Route 
-            exact
-            path='/'
-            component={Landing}
-          />*/}
           <Route 
             exact
             path='/'

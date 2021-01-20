@@ -3,13 +3,7 @@ import React from 'react'
 const PlantContext = React.createContext({
   plants: [],
   favorites: [],
-  /*
-  addPlantRequest: (options) => {
-    this.setState({
-      plants: [...this.state.plants, options]
-    })
-  },
-  */
+
   deletePlantRequest: (plantId) => {
     const newPlants = this.state.plants.filter(p => 
       p.id !== plantId
