@@ -23,6 +23,7 @@ class App extends Component {
 
   componentDidMount() {
     //replace whatever is in here with the future fetch.
+    //const allPlantsUrl = 'https://plant-parenthood-api.herokuapp.com/api/plants'
     const allPlantsUrl = 'http://localhost:8000/api/plants'
     fetch(allPlantsUrl, {
       method: 'GET',
@@ -51,8 +52,10 @@ class App extends Component {
   }
 
   editPlantRequest = (updatedPlant) => {
+    console.log(updatedPlant)
+    console.log(this.state)
     const newPlants = this.state.plants.map(pla =>
-      (pla.id === updatedPlant.id)
+      (pla.id == updatedPlant.id)
         ?updatedPlant
         :pla
       )

@@ -7,6 +7,7 @@ class PlantPage extends Component {
     static contextType = PlantContext
     
     deletePlant = (plantId) => {
+        //const allPlantsUrl = `https://plant-parenthood-api.herokuapp.com/api/plants/${plantId}`
         const allPlantsUrl = `http://localhost:8000/api/plants/${plantId}`
         fetch(allPlantsUrl, {
             method: 'DELETE',
@@ -20,6 +21,7 @@ class PlantPage extends Component {
     
 
     editPlant = (plantId) => {
+        //const allPlantsUrl = `https://plant-parenthood-api.herokuapp.com/api/plants/${plantId}`
         const allPlantsUrl = `http://localhost:8000/api/plants/${plantId}`
         fetch(allPlantsUrl, {
             method: 'PATCH',
@@ -38,7 +40,6 @@ class PlantPage extends Component {
         return (
             <div>
                 <Link to={`/edit/${this.props.match.params.plantId}`}>edit plant</Link>
-                <div>(Remember your values for 'Favorite?' and 'Maintenance Level' before you editing)</div>
                 <section className='plant-page-info'>
                     <h2 className='plant-name'>{selected.plant_name}</h2>
                     <div>Maintenance Level: {selected.maint_level}</div><br />

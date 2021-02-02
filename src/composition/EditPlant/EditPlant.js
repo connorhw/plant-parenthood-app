@@ -1,120 +1,168 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-//import PlantContext from '../../PlantContext.js'
+import PlantContext from '../../PlantContext'
 
 class EditPlant extends Component {
+    static propTypes = {
+        match: PropTypes.shape({
+            params: PropTypes.object,
+        }),
+        history: PropTypes.shape({
+            push: PropTypes.func,
+        }).isRequired,
+    };
+
+    static contextType = PlantContext;
+
     state = {
-
-    }
+        error: null,
+        id: '',
+        plant_name: '',
+        water_week: 0,
+        water_day: 0,
+        fert_type: '',
+        when_repot: '',
+        maint_level: '',
+        fav: false,
+        rec_env: '',
+        fun_fact: '',
+    };
+    
     componentDidMount() {
-        const plantId = this.props.match.params.plantId
-
+        const { plantId } = this.props.match.params
+        //const url = `https://plant-parenthood-api.herokuapp.com/api/plants/${plantId}`
         const url = `http://localhost:8000/api/plants/${plantId}`
         fetch(url, {
             method: 'GET',
         })
-        .then(response => {
-            if(!response.ok) {
-              throw new Error(response.status)
-            }
-            const res = response.json()
-            return res;
-          })
-          .then(res => {
-            this.setState({
-                plant_name: res.plant_name,
-                water_day: res.water_day,
-                water_week: res.water_week,
-                rec_env: res.rec_env,
-                fert_type: res.fert_type,
-                when_repot: res.when_repot,
-                maint_level: res.maint_level,
-                fun_fact: res.fun_fact,
-                fav: res.fav,
-                id: res.id,
-            })
-          })
-    }
+        .then(res => {
+            if(!res.ok)
+                return res.json().then(error => Promise.reject(error))
 
-    handleSubmit = e => {
-        e.preventDefault()
-        // validation not shown
-        fetch(`http://localhost:8000/api/plants/${this.props.match.params.plantId}`, {
-            method: 'PATCH',
-            body: JSON.stringify(this.state.inputValues)
+            return res.json()
         })
-            .then(/* some content omitted */)
-            .then(responseData => {
-                this.context.editPlantRequest(responseData)
+        .then(responseData => {
+            this.setState({
+                id: responseData.id,
+                plant_name: responseData.plant_name,
+                water_week: responseData.water_week,
+                water_day: responseData.water_day,
+                fert_type: responseData.fert_type,
+                when_repot: responseData.when_repot,
+                maint_level: responseData.maint_level,
+                fav: responseData.fav,
+                rec_env: responseData.rec_env,
+                fun_fact: responseData.fun_fact,
             })
-            .catch(error => {/* some content omitted */})
+        })
+        .catch(error => {
+            console.error(error)
+            this.setState({ error })
+        })
     }
 
     handleChangePlantName = event => {
-        this.setState({
-            plant_name: event.target.value
-        })
-    }
+        this.setState({ plant_name: event.target.value })
+    };
     handleChangeWeek = event => {
-        this.setState({
-            water_week: event.target.value
-        })
-    }
+        this.setState({ water_week: event.target.value })
+    };
     handleChangeDay = event => {
-        this.setState({
-            water_day: event.target.value
-        })
-    }
+        this.setState({ water_day: event.target.value })
+    };
     handleChangeFert = event => {
-        this.setState({
-            fert_type: event.target.value
-        })
-    }
+        this.setState({ fert_type: event.target.value })
+    };
     handleChangeRepot = event => {
-        this.setState({
-            when_repot: event.target.value
-        })
-    }
+        this.setState({ when_repot: event.target.value })
+    };
     handleChangeMaint = event => {
-        this.setState({
-            maint_level: event.target.value
-        })
-    }
+        this.setState({ maint_level: event.target.value })
+    };
     handleChangeFav = event => {
-        this.setState({
-            fav: event.target.value
+        this.setState({ fav: event.target.value })
+    };
+    handleChangeEnv = event => {
+        this.setState({ rec_env: event.target.value })
+    };
+    handleChangeFun = event => {
+        this.setState({ fun_fact: event.target.value })
+    };
+
+    handleSubmit = e => {
+        console.log(this.state)
+        e.preventDefault()
+        //const { plantId } = this.props.match.params
+        const { id, plant_name, water_day, water_week, rec_env, fert_type, when_repot, fun_fact, fav, maint_level } = this.state
+        const newPlant = { id, plant_name, water_day, water_week, rec_env, fert_type, when_repot, fun_fact, fav, maint_level }
+        
+
+        fetch(`http://localhost:8000/api/plants/${this.props.match.params.plantId}`, {
+            method: 'PATCH',
+            body: JSON.stringify(newPlant),
+            headers: {
+                'content-type': 'application/json',
+            },
+        })
+        .then(res => {
+            if(!res.ok)
+                return res.json().then(error => Promise.reject(error))
+        })
+        .then(() => {
+            this.resetFields(newPlant)
+            this.context.editPlantRequest(newPlant)
+            this.props.history.push('/')
+        })
+        .catch(error => {
+            console.error(error)
+            this.setState({ error })
         })
     }
 
-    handleChangeEnv = event => {
+    resetFields = (newFields) => {
         this.setState({
-            rec_env: event.target.value
+            id: newFields.id || '',
+            plant_name: newFields.plant_name || '',
+            water_week: newFields.water_week || '',
+            water_day: newFields.water_day || '',
+            rec_env: newFields.rec_env || '',
+            fert_type: newFields.fert_type || '',
+            when_repot: newFields.when_repot || '',
+            fun_fact: newFields.fun_fact || '',
+            fav: newFields.fav || '',
+            maint_level: newFields.maint_level || '',
         })
     }
-    handleChangeFun = event => {
-        this.setState({
-            fun_fact: event.target.value
-        })
-    }
+
+    handleCancelClick = () => {
+        this.props.history.push('/')
+    };
     
     render() {
-        const { plant_name, water_day, water_week, rec_env, fert_type, when_repot, fun_fact} = this.state
+        const { error, plant_name, water_day, water_week, rec_env, fert_type, when_repot, fun_fact, fav, maint_level} = this.state
         return (
             <section className='EditPlantForm'>
                 <h2>Edit Plant</h2>
                 <form onSubmit={this.handleSubmit}>
+                    <div className='EditBookmark__error' role='alert'>
+                        { error && <p>{ error.message }</p>}
+                    </div>
+                    <input
+                        type='hidden'
+                        name='id'
+                    />
                     <div>
                         <label htmlFor='editName'>Plant Name: </label>
                         <input
                             id='plant_name'
                             type='text'
                             name='plant_name'
-                            value={plant_name || ''}
+                            value={plant_name}
                             onChange={this.handleChangePlantName}
                             required
                             /><br />
                         <label htmlFor='editMaint'>Maintenance Level: </label>
-                        <select onChange={this.handleChangeMaint} id='maintain' name='maintain' required>
+                        <select value={maint_level} onChange={this.handleChangeMaint} id='maintain' name='maintain' required>
                             <option value=''>select</option>
                             <option value='low'>Low</option>
                             <option value='medium'>Medium</option>
@@ -153,7 +201,7 @@ class EditPlant extends Component {
                             onChange={this.handleChangeFert}
                             /><br />
                         <label htmlFor='editFav'>Add to favorites? </label>
-                        <select onChange={this.handleChangeFav} id='fav' name='fav' required>
+                        <select value={fav} onChange={this.handleChangeFav} id='fav' name='fav' required>
                             <option value=''>select</option>
                             <option value='true'>yes</option>
                             <option value='false'>no</option>
@@ -163,7 +211,10 @@ class EditPlant extends Component {
 
                         <label htmlFor='fun-fact'>Fun Fact (ie. Origin): </label><br />
                         <textarea onChange={this.handleChangeFun} value={fun_fact} id='funFact' name='funFact' type='text' cols="40" rows="5" required /><br /><br />
-
+                        <button type='button' onClick={this.handleCancelClick}>
+                            Cancel
+                        </button>
+                        {' '}
                         <button type="submit" >save</button><br />
                     </div>
                 </form>
@@ -175,7 +226,3 @@ class EditPlant extends Component {
 }
 
 export default EditPlant;
-
-EditPlant.propTypes = {
-    handleEdit: PropTypes.func
-}

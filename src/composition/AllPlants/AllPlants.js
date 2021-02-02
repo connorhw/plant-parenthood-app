@@ -17,7 +17,9 @@ class AllPlants extends Component {
       }
     componentDidMount() {
         //replace whatever is in here with the future fetch.
+        //const allPlantsUrl = 'https://plant-parenthood-api.herokuapp.com/api/plants'
         const allPlantsUrl = 'http://localhost:8000/api/plants'
+
         fetch(allPlantsUrl, {
           method: 'GET',
         })
@@ -37,7 +39,6 @@ class AllPlants extends Component {
     render() {
         return (
             <section className='all-plants'>
-            {/*<Link to={`/NewPlantPage`}>Plant0_name</Link>*/}
                 <h3 className='all-header'>All the plants we've seen so far: </h3>
                     <ul>
                         {this.state.plants.map(plant => 

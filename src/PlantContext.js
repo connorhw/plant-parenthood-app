@@ -15,7 +15,7 @@ const PlantContext = React.createContext({
   
   editPlantRequest: (updatedPlant) => {
     const newPlants = this.state.plants.map(pla =>
-      (pla.id === updatedPlant.id)
+      (pla.id == updatedPlant.id)
         ?updatedPlant
         :pla
     )

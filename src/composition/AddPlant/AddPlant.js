@@ -8,8 +8,8 @@ import { Redirect } from 'react-router-dom'
 
 class AddPlant extends Component {
     static contextType = PlantContext;
-
     state = {
+        plants: [],
         redirect: null,
         error: ''
     }
@@ -26,7 +26,9 @@ class AddPlant extends Component {
         const env = event.target.env.value;
         
 
+        //const url = 'https://plant-parenthood-api.herokuapp.com/api/plants';
         const url = 'http://localhost:8000/api/plants';
+        
         const options = {
             method: 'POST',
             body: JSON.stringify({
@@ -52,9 +54,15 @@ class AddPlant extends Component {
                 }
                 return res.json()
             })
-            .then((res) => {
+            .then((data) => {
+                console.log(data)
+                //console.log(this.context)
                 this.setState({ 
-                    redirect: "/plants" });
+                    //plants: [...this.props.plants, res],
+                    redirect: "/plants" },
+                    () => {
+                        this.props.handleAdd(data)
+                    });
                 
             })
             .then(res => {
@@ -72,7 +80,7 @@ class AddPlant extends Component {
     }
 
     render() {
-        {
+        
             if (this.state.redirect) { 
                 return <Redirect to={this.state.redirect} /> 
                 } 
@@ -111,7 +119,7 @@ class AddPlant extends Component {
                         <button type="submit" >Submit Plant</button><br />
                     </form>
                 ) 
-        }
+        
     }
 } 
 
